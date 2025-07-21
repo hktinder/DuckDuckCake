@@ -1,0 +1,232 @@
+/*using UnityEngine;
+
+public class InfoFunctions.txt
+{
+    // Functions we need to create for Duck Duck Cake 
+
+
+Functions = [
+    StartGame(),
+	// this function will take in the user input and begin game play 
+	// it must be able to take in user input from the player clicking the "start game" button 
+	// must ensure we properly link the user input for functionality 
+	
+    PauseGame(),
+	// this function must be able to take in user input from pressing the "pause game buttom"
+	// it will pasue the game if the button is selected 
+	// if the user click out of the game, or clicks the main menu button isntead of resuming the game
+	// all of their progress is lost, and thre game will restart 
+	// they will be presented with the loss screen, so we must connect them 
+	// must be linked to the HUD
+	
+	
+    ResumeGame(),
+	// from the pause game function, the user must be able to restart the game 
+	// must take user input from the player clicking the restart game button 
+	// must be linked to the start game function, but will need to restart exactly where the player pressed pause
+	// connect to the count and ensure that the time and lives lost so far are the same 
+	
+    ReturnToMainMenu(),
+	// must take user input from pressing the return to main menu 
+	// this must be linked to the how to play and pause game functions 
+	
+	
+    ToggleSound(),
+	// this function must be on a loop and be connected to all audio assests 
+	// anytime the buttons are pressed a light sound will play 
+
+	
+	
+    DisplayCredits(),
+	// must be linked to the main menu function 
+	// this button will take user input when clicked on
+	// it will display game credits 
+	
+	
+    DisplayHowToPlayInstructions(),
+	// must be linked to the main menu function and take in user input from pressing 
+	// the how to play instructions 
+	// msut be able to return together main menu in order to start game after viewing the 
+	// how to play screen 
+	
+	
+    MoveDuck(direction),
+	// this must be linked to user input from the player pressing up,down,left,right arrows
+	// on their keyboard in order to move the duck to collect cake slices and avoid obstacles 
+	// this must also be 60fps and enssure that it is moving the duck in real time with no delays 
+	// see lecture notes for info on how to split up the frames
+	// this function must be accurate and link to the physics of how the bones in the duck's mesh move 
+	
+	
+    HandlePlaneCollision(),
+	// this function must be linked to the lives lost function / health reduced
+	// anytime the player fails to avoid colliding with a plane, one of their lives will be lost
+	// must be connected to the life count and ensure that if the player has used up all of their lives, that
+	// it will go to the lose game screen 
+	// it must also be linked to the plane animation and show that when the colision happens the plane will loop back across the screen
+	// if the collison does not happen we must be able to see the plane fall out of the sky 
+	// must be able to track the players location at all times, in order to see if they have passed the obstacle without colliding 
+	
+	
+    "HandleCloudCollision()",
+	// will mirror the plane collison, exept will be with a cloud 
+	// if the player does not collide with the cloud, a rainbow will appear
+	// if the player does collide with the cloud then it will split and a lightening bolt will appear
+	// must also be connected to the life count 
+	// must be able to track the players location at all times, in order to see if they have passed the obstacle without colliding 
+
+	
+	
+    "HandleCakeSliceCollision()",
+	// if the player collides with a cake, the cake count is updated 
+	// the player does not lsoe a life
+	// the cake count must be updated to reflect the player gaining a slice 
+	// there is no consequence for missing a cake slice 
+	
+	
+    "GeneratePlane()",
+	// must be linked to the timer and also the cloud and cake slice functions
+	// must be able to track how many other obstacles are on the screen at one time
+	// at any given time there will be no more then 2 obstacles on the screen, to avoid clutter for the player 
+	
+	
+    "GenerateCloud()",
+	// must be linked to the timer and also the plane and cake slice functions
+	// must be able to track how many other obstacles are on the screen at one time
+	// at any given time there will be no more then 2 obstacles on the screen, to avoid clutter for the player 
+	
+	
+    "GenerateCakeSlice()",
+	// must be linked to the timer and also the cloud and plane functions
+	// must be able to track how many other obstacles are on the screen at one time
+	// at any given time there will be no more then 2 obstacles on the screen, to avoid clutter for the player 
+	
+	
+    "UpdateTimer()",
+	// must be constantly tracking the time elaspsed and connected to the HUD so the player can see at any given time 
+	// how much time has gone by and how much time they have left to win 
+	// must be connected to the generate functions as well because they must be generating every xx seconds 
+	// on dependance with how fast the duck is moving across the screen
+	// since the duck is at a constant speed, once we measure how long it takes for one obstacle to go out of the screen, then
+	// we will be able to see how many seconds will need to be between each generate function
+	
+	
+    "UpdateLifeCount()",
+	// must be linked to the collider and all collision detectors 
+	// msut be linked to HUD to display accurate life count at any given time 
+	// must be linked to the health/ loss of life in order to uopdate accordingly 
+	
+	
+    "UpdateCakeSliceCount()",
+	// must be linked to the collider and all collision detectors 
+	// msut be linked to HUD to display accurate cake slice count at any given time 
+	// must be tracking that if player collected count == cake slice goal count 
+	// and see that as soon as they are equal, the game goes to the win screen, since this signifies
+	// that the level has been won 
+	
+	
+	
+    "CheckLevelCompletion()",
+	// must be linked to the counter function and upon completing each level 
+	// the tracker must be updated 
+	// if all levels are completed then the duckilings have been saved and 
+	// are able to celebrate with the happy birthday screen 
+	// if all lives are lost then the player must restart the level 
+	// must be linked to the life count as well
+	
+	
+    "AdvanceToNextLevel()",
+	// check is the player has more 1 or more lives left and they 
+	// collected all the cake slices before the time was up, then
+	// advacne to next level, add a tier onto the cake 
+	
+	
+    "DisplayWinScreen()",
+	// did the player beat all levels and collect enough cake? 
+	// if yes, display win screen 
+	
+	
+    "DisplayLoseScreen()",
+	// did the player lose all their lives or prematurely end the game 
+	// if yes, display lose screen 
+	
+	
+    "ResetLevel()",
+	// if the player lost on the first level, the level will reset
+	// must be tracking how much lives, cake count, and the time left 
+	
+	
+    "PlaySoundEffect(effectType)",
+	// must be linked to all audio assets
+	// each sound will be linked for each obstacle in the colldier function 
+	// must be able to play the sound simultaniously with the collison 
+	// must be able to run through a loop and continually play the background birthday ducks song 
+	
+	
+    "PlayAnimation(animationType)",
+	// must be linked to all meshes and ensure that the physics and movement are correct
+	// must be able to properly render the 3D animations 
+	// must be able to display the different emotions of the duck and the collison animations as well
+	
+	
+    "SpinCakeSlice()",
+	// must be able to track the collisions and see exaclty when the duck collides
+	// the cake slice will spin at the SAME time ther cake slice collection sound effect plays 
+	
+	
+    "FadeCakeSlice()",
+	// must be able to track the players location and as soon as the player passes without colliding, then
+	// the cake slice wil lfade away from the screen 
+	
+	
+    "BreakCloud()",
+	// track collsions with cloud 
+	// if there is one, break the cloud and display lightening 
+	// must be played at the same time the audio effect for the collision also plays 
+	
+	
+    "ShowRainbowInCloud()",
+	// must be able to track the players location and as soon as the player passes without colliding, then
+	// the cloud will display a rainbow since it is happy it was not destroyed 
+	
+	
+    "LoopPlane()",
+	// track collsions with plane 
+	// if the player collides with the plane then the plane will take a loop across the screen
+	// this must be played at the same time as the plane collision sound 
+	
+	
+    "FallPlane()",
+	// must be able to track the players location and as soon as the player passes without colliding, then
+	// the plane will fall out of the sky since he can go home now 
+	
+    "ScrollBackground()",
+	// must be updating the screen in the forward direction and moving across the screen at a constant speed 
+	
+	
+    "DisplayHUD()",
+	// must be visible during game play
+	// will be linked to the life count, cake count, timer 
+	// msut be contantly tracking if anything has been updated and simultaniously display on the HUD	
+	
+    "LevelManager()",
+	// link to the level advancement tracker and the life count 
+	// must know when to restart the level, end the level, or end the game 
+	// must be able to also track the level and see if the player has won the gaame and built the full cake 
+	
+	
+    "BuildCake()",
+	// link to each level and for each level completed a layer is added to the cake 
+	// must be constantly updated at the end of each level
+	// if the game is lost, any layers previosuly built will fall apart
+	
+	
+    "ResetLives()"
+	// must link to each level and be able to reset lives at the same time a new level begins 
+	
+	
+	
+]
+
+}
+*/
