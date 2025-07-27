@@ -14,13 +14,16 @@ public class PlayerController : MonoBehaviour
     public float downBound = -127f;
     public int maxHealth = 3;
     public int currentHealth;
-
     public HealthBar healthBar;
+    public int currentCakeSlices;
+    public int totalCakeSlices;
+    public CakeCount cakeCount;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        cakeCount.UpdateCakeCount(currentCakeSlices);
     }
 
     void Update()
@@ -57,6 +60,16 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScreen");
         }
-   }
+    }
+
+    void AddSlice(int slice)
+    {
+        currentCakeSlices += slice;
+        cakeCount.UpdateCakeCount(currentCakeSlices);
+        if (currentCakeSlices == totalCakeSlices)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+    }
 
 }

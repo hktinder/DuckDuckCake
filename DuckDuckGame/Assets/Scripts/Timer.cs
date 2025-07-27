@@ -13,7 +13,6 @@ public class Timer : MonoBehaviour
   
     void Update()
     {
-
         if (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
