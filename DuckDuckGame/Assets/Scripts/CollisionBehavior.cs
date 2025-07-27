@@ -7,7 +7,6 @@ public class CollisionBehavior : MonoBehaviour
     public GameObject targetObject;
     public string targetFunctionName;
 
-    
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collided with: " + other.gameObject);
