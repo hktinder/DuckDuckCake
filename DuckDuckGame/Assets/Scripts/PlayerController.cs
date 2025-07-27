@@ -43,10 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        /*else if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
-        }
+        }*/
     }
 
     void TakeDamage(int damage)
