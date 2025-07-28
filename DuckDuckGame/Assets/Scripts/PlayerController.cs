@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * duckSpeed, Space.World);
         if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < upBound)
         {
-            animator.Play("Animation");
+            // animator.Play("Animation");
             transform.Translate(Vector3.up * Time.deltaTime * moveSpeed, Space.World);
         }
         else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > downBound)
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void AddSlice(int slice)
+    public void AddSlice(int slice)
     {
         currentCakeSlices += slice;
         cakeCount.UpdateCakeCount(currentCakeSlices);
@@ -71,5 +71,4 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("WinScreen");
         }
     }
-
 }

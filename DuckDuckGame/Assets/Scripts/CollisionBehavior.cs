@@ -9,13 +9,14 @@ public class CollisionBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Function name: " + targetFunctionName);
         Debug.Log("Collided with: " + other.gameObject);
         if (other.gameObject == targetObject)
         {
             MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
-            if (targetScript != null && targetScript.GetType().GetMethod(targetFunctionName) != null)
             {
-                targetScript.Invoke(targetFunctionName, 1);
+                Debug.Log("Invoking: " + targetFunctionName);
+                targetScript.SendMessage(targetFunctionName, 1);
             }
         }
     }
