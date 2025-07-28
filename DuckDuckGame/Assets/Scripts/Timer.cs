@@ -21,9 +21,7 @@ public class Timer : MonoBehaviour
         {
             remainingTime = 0;
             timerText.color = Color.red;
-            // check if cake count goal was met to go to win or lose screen 
-            // temp code added for proof of concept
-            SceneManager.LoadScene("WinScreen");
+            SceneManager.LoadScene("LoseScreen");
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
