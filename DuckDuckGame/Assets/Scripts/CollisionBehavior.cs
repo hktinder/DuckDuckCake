@@ -9,8 +9,6 @@ public class CollisionBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Function name: " + targetFunctionName);
-        Debug.Log("Collided with: " + other.gameObject);
         if (other.gameObject == targetObject)
         {
             MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
