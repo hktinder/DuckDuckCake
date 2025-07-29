@@ -15,8 +15,12 @@ public class OnClick : MonoBehaviour
     {
         SceneManager.LoadScene("WinScreen");
     }
-        public void LoadLoseScreen()
+    public void LoadLoseScreen()
     {
         SceneManager.LoadScene("LoseScreen");
+    }
+    public void LoadEndScreen()
+    {
+        Application.Quit();
     }
 }
