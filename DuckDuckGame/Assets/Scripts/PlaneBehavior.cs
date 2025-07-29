@@ -23,14 +23,22 @@ public class PlaneBehavior : MonoBehaviour
 
     void Update()
     {
-        //animator.play("Idle");
-        Vector3 objZ = transform.forward;
-        Vector3 targetZ = targetObject.transform.forward;
-        if (objZ.z > targetZ.z)
+        if (animator == null || targetObject == null)
         {
-            Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
+            return;
+        }
+        //animator.play("Idle");
+        Vector3 objZ = transform.position;
+        Vector3 targetZ = targetObject.transform.position;
+        Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
+        if (objZ.z < targetZ.z)
+        {
+            Debug.Log("target object passed me!");
             //animator.play("Missed");
         }
-        animator.Play("New State");
+        else
+        {
+            animator.Play("New State");
+        }
     }
 }

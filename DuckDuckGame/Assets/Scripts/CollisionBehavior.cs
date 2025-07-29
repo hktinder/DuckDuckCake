@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollisionBehavior : MonoBehaviour
 {
-    //public Animator animator;
+    public Animator animator;
     public GameObject targetObject;
     public string targetFunctionName;
 
@@ -16,20 +16,28 @@ public class CollisionBehavior : MonoBehaviour
             {
                 Debug.Log("Invoking: " + targetFunctionName);
                 targetScript.SendMessage(targetFunctionName, 1);
-                //animator.play("Collision");
+                animator.Play("Collision");
             }
         }
     }
 
     void Update()
     {
-        //animator.play("Idle");
-        Vector3 objZ = transform.forward;
-        Vector3 targetZ = targetObject.transform.forward;
-        if (objZ.z > targetZ.z)
+        if (animator == null || targetObject == null)
         {
-            Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
-            //animator.play("Missed");
+            return;
+        }
+        Vector3 objZ = transform.position;
+        Vector3 targetZ = targetObject.transform.position;
+        Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
+        if (objZ.z < targetZ.z)
+        {
+            Debug.Log("target object passed me!");
+            animator.Play("Missed");
+        }
+        else
+        {
+            animator.Play("Idle");
         }
     }
 }
