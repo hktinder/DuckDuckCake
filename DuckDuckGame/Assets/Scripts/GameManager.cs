@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
+    /*
     public static GameManager instance;
     public GameState state;
     public static event Action<GameState> OnGameStateChanged;
     public int levelNum;
-    public gameObject pauseObject;
-    public gameObject timer;
+    public static GameObject pauseObject;
+    public static GameObject timer;
+
+    public MonoBehaviour timerScript = timer.GetComponent<MonoBehaviour>();
 
     void Awake()
     {
@@ -27,8 +31,8 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        pauseObject.setActive(false);
-        timer.Play();
+        pauseObject.SetActive(false);
+        timerScript.SendMessage("Play");
     }
 
     public void UpdateGameState(GameState newState)
@@ -43,8 +47,8 @@ public class GameManager : MonoBehaviour
             case GameState.Level3:
                 break;
             case GameState.Pause:
-                pauseObject.SetActive();
-                timer.Pause();
+                pauseObject.SetActive(true);
+                timerScript.SendMessage("Pause");
                 break;
             case GameState.Win:
                 break;
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
         {
             OnGameStateChanged(newState);
         }
-    }
+    }*/
 }
 
 public enum GameState

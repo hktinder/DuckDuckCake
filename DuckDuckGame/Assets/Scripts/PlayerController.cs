@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("WinScreen");
         }
     }
-
+    /*
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameState state)
     {
-        if (state == "Pause")
+        if (state == GameState.Pause)
         {
             paused = true;
         }
@@ -100,5 +100,5 @@ public class PlayerController : MonoBehaviour
         {
             paused = false;
         }
-    }
+    }*/
 }
