@@ -14,13 +14,16 @@ public class PlayerController : MonoBehaviour
     public float downBound = -127f;
     public int maxHealth = 3;
     public int currentHealth;
-
     public HealthBar healthBar;
+    public int currentCakeSlices;
+    public int totalCakeSlices;
+    public CakeCount cakeCount;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        cakeCount.UpdateCakeCount(currentCakeSlices);
     }
 
     void Update()
@@ -28,24 +31,27 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * duckSpeed, Space.World);
         if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < upBound)
         {
-            animator.Play("Animation");
+            animator.Play("Ascend");
             transform.Translate(Vector3.up * Time.deltaTime * moveSpeed, Space.World);
         }
         else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > downBound)
         {
+            animator.Play("Descend");
             transform.Translate(Vector3.down * Time.deltaTime * moveSpeed, Space.World);
         }
         else if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x > leftBound)
         {
+            animator.Play("FlapWings");
             transform.Translate(Vector3.left * Time.deltaTime * moveSpeed, Space.World);
         }
         else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x < rightBound)
         {
+            animator.Play("FlapWings");
             transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            TakeDamage(1);
+            animator.Play("Idle");
         }
     }
 
@@ -57,6 +63,15 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScreen");
         }
-   }
+    }
 
+    public void AddSlice(int slice)
+    {
+        currentCakeSlices += slice;
+        cakeCount.UpdateCakeCount(currentCakeSlices);
+        if (currentCakeSlices == totalCakeSlices)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+    }
 }
