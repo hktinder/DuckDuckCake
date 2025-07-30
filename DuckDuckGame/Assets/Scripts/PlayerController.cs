@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public int totalCakeSlices;
     public CakeCount cakeCount;
 
+    public bool paused = false;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -28,30 +30,33 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * duckSpeed, Space.World);
-        if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < upBound)
+        if (!paused)
         {
-            animator.Play("Ascend");
-            transform.Translate(Vector3.up * Time.deltaTime * moveSpeed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > downBound)
-        {
-            animator.Play("Descend");
-            transform.Translate(Vector3.down * Time.deltaTime * moveSpeed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x > leftBound)
-        {
-            animator.Play("FlapWings");
-            transform.Translate(Vector3.left * Time.deltaTime * moveSpeed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x < rightBound)
-        {
-            animator.Play("FlapWings");
-            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
-        }
-        else
-        {
-            animator.Play("Idle");
+            transform.Translate(Vector3.forward * Time.deltaTime * duckSpeed, Space.World);
+            if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < upBound)
+            {
+                animator.Play("Ascend");
+                transform.Translate(Vector3.up * Time.deltaTime * moveSpeed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > downBound)
+            {
+                animator.Play("Descend");
+                transform.Translate(Vector3.down * Time.deltaTime * moveSpeed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x > leftBound)
+            {
+                animator.Play("FlapWings");
+                transform.Translate(Vector3.left * Time.deltaTime * moveSpeed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x < rightBound)
+            {
+                animator.Play("FlapWings");
+                transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
+            }
+            else
+            {
+                animator.Play("Idle");
+            }
         }
     }
 
@@ -72,6 +77,28 @@ public class PlayerController : MonoBehaviour
         if (currentCakeSlices == totalCakeSlices)
         {
             SceneManager.LoadScene("WinScreen");
+        }
+    }
+
+    void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+    }
+
+    private void GameManagerOnGameStateChanged(GameState state)
+    {
+        if (state == "Pause")
+        {
+            paused = true;
+        }
+        else
+        {
+            paused = false;
         }
     }
 }
