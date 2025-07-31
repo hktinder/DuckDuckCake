@@ -943,7 +943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48ab4cf819d2954c9d034918d731c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelScreen: {fileID: 846557700}
+  nextScreen: {fileID: 846557700}
+  secondaryScreen: {fileID: 0}
   nextClicked: 0
 --- !u!1 &832575517
 GameObject:
@@ -1715,7 +1716,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 724695463}
         m_TargetAssemblyTypeName: OnClick, Assembly-CSharp
-        m_MethodName: LoadNextLevelScreen
+        m_MethodName: LoadNextScreen
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1923,7 +1924,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 724695463}
         m_TargetAssemblyTypeName: OnClick, Assembly-CSharp
-        m_MethodName: LoadNextLevelScreen
+        m_MethodName: LoadNextScreen
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
