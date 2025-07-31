@@ -5,6 +5,16 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject planeObstacle;
+    public GameObject cloudObstacle;
+    public GameObject cakeSlice;
+
+
+
+
+
+
+
     /*
     public static GameManager instance;
     public GameState state;
