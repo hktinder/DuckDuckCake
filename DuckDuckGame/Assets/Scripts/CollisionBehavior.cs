@@ -34,7 +34,7 @@ public class CollisionBehavior : MonoBehaviour
         }
         Vector3 objZ = transform.position;
         Vector3 targetZ = targetObject.transform.position;
-        Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
+        //Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
         if (objZ.z < targetZ.z)
         {
             Debug.Log("target object passed me!");

@@ -1858,10 +1858,10 @@ RectTransform:
   - {fileID: 1557427800}
   m_Father: {fileID: 548888186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.40369, y: 105.36482}
-  m_SizeDelta: {x: 32.8073, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -36, y: -41.531982}
+  m_SizeDelta: {x: 32.807312, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235508440
 MonoBehaviour:
@@ -3269,10 +3269,6 @@ MonoBehaviour:
   animator: {fileID: 1717305646}
   duckSpeed: 50
   moveSpeed: 50
-  rightBound: 195
-  leftBound: -204
-  upBound: 275
-  downBound: -127
   maxHealth: 3
   currentHealth: 3
   healthBar: {fileID: 522530097}

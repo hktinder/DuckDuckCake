@@ -17,14 +17,24 @@ public class PauseManager : MonoBehaviour
     {
         if (!saveData)
         {
-            SceneManager.LoadScene("MainMenu");
+            GameStateManager.cakeCount = 0;
+            GameStateManager.timer = 90f;
+            GameStateManager.playerHealth = 3;
+            Debug.Log("Didn't save data...");
         }
         else
         {
-            GameStateManager.cakeCount = 1;
-            GameStateManager.timer = 2f;
-            GameStateManager.playerHealth = 2;
+            Debug.Log(PlayerController.GetCakeSlices());
+            Debug.Log(Timer.GetRemainingTime());
+            Debug.Log(PlayerController.GetHealthScore());
+            GameStateManager.cakeCount = PlayerController.GetCakeSlices();
+            GameStateManager.timer = Timer.GetRemainingTime();
+            GameStateManager.playerHealth = PlayerController.GetHealthScore();
+            Debug.Log("Saved data!");
         }
+        Time.timeScale = 1;
+        paused = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Update()

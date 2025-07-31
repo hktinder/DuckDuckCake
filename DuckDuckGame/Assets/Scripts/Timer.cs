@@ -8,9 +8,14 @@ public class Timer : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float remainingTime;
+    public static float remainingTime;
 
     bool paused = false;
+
+    void Start()
+    {
+        remainingTime = GameStateManager.timer;
+    }
 
 
     void Update()
@@ -30,7 +35,7 @@ public class Timer : MonoBehaviour
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);   
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void Pause()
@@ -40,5 +45,10 @@ public class Timer : MonoBehaviour
     void Play()
     {
         paused = false;
+    }
+
+    public static float GetRemainingTime()
+    {
+        return remainingTime;
     }
 }
