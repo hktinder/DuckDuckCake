@@ -8,15 +8,20 @@ public class CollisionBehavior : MonoBehaviour
     public GameObject targetObject;
     public string targetFunctionName;
 
+    private bool collided = false;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == targetObject)
+        if (!collided)
         {
-            MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
+            if (other.gameObject == targetObject)
             {
-                Debug.Log("Invoking: " + targetFunctionName);
-                targetScript.SendMessage(targetFunctionName, 1);
-                animator.Play("Collision");
+                MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
+                {
+                    Debug.Log("Invoking: " + targetFunctionName);
+                    targetScript.SendMessage(targetFunctionName, 1);
+                    animator.Play("Collision");
+                }
             }
         }
     }
