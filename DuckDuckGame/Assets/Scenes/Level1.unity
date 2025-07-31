@@ -179,10 +179,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8143710011712545758, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 386df419cf08d5f47a04170d0a50a00e, type: 2}
+    - target: {fileID: -6093592463355912122, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c453e73dc53a6246a56a844ea29c25c, type: 2}
+    - target: {fileID: -1120989108687609925, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 386df419cf08d5f47a04170d0a50a00e, type: 2}
+    - target: {fileID: -804731622281664130, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cabd5b4f74bd6a4c8190a286e5db06e, type: 2}
+    - target: {fileID: -678588488315902003, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cabd5b4f74bd6a4c8190a286e5db06e, type: 2}
     - target: {fileID: 919132149155446097, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
       propertyPath: m_Name
       value: Cake Slice
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 5f839eae4bc6ebb4bb364889062afb4f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c453e73dc53a6246a56a844ea29c25c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
