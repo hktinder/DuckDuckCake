@@ -37,7 +37,7 @@ public class CollisionBehavior : MonoBehaviour
         //Debug.Log("Obj: " + objZ.z + " Target: " + targetZ.z);
         if (objZ.z < targetZ.z)
         {
-            Debug.Log("target object passed me!");
+            //Debug.Log("target object passed me!");
             animator.Play("Missed");
         }
         else

@@ -1127,7 +1127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1189261736}
-  remainingTime: 90
 --- !u!114 &548888188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3270,9 +3269,7 @@ MonoBehaviour:
   duckSpeed: 50
   moveSpeed: 50
   maxHealth: 3
-  currentHealth: 3
   healthBar: {fileID: 522530097}
-  currentCakeSlices: 0
   totalCakeSlices: 8
   cakeCount: {fileID: 1555680631}
   paused: 0
@@ -3466,7 +3463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1720691181}
   targetObject: {fileID: 1717305643}
-  targetFunctionName: Take Damage
+  targetFunctionName: TakeDamage
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
