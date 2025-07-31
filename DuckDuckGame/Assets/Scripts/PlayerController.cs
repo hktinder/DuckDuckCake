@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Screenbounds- x: " + screenBounds.x + " y: " + screenBounds.y);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        cakeCount.UpdateCakeCount(currentCakeSlices);
+        cakeCount.UpdateCakeCount(GameStateManager.cakeCount);
     }
 
     void Update()
