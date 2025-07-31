@@ -19,6 +19,12 @@ public class PauseManager : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+        else
+        {
+            GameStateManager.cakeCount = 1;
+            GameStateManager.timer = 2f;
+            GameStateManager.playerHealth = 2;
+        }
     }
 
     void Update()
