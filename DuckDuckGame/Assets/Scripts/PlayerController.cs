@@ -8,14 +8,10 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float duckSpeed = 5;
     public float moveSpeed = 50;
-    //public float rightBound = 195f;
-    //public float leftBound = -204f;
-    //public float upBound = 275f;
-    //public float downBound = -127f;
     public int maxHealth = 3;
-    public static int currentHealth = GameStateManager.playerHealth;
+    public static int currentHealth;
     public HealthBar healthBar;
-    public static int currentCakeSlices = GameStateManager.cakeCount;
+    public static int currentCakeSlices;
     public int totalCakeSlices;
     public CakeCount cakeCount;
 
@@ -27,9 +23,10 @@ public class PlayerController : MonoBehaviour
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Debug.Log("Screenbounds- x: " + screenBounds.x + " y: " + screenBounds.y);
-        currentHealth = maxHealth;
+        currentHealth = GameStateManager.playerHealth;
         healthBar.SetMaxHealth(maxHealth);
-        cakeCount.UpdateCakeCount(GameStateManager.cakeCount);
+        currentCakeSlices = GameStateManager.cakeCount;
+        cakeCount.UpdateCakeCount(currentCakeSlices);
     }
 
     void Update()
