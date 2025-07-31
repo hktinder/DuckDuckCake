@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class OnClick : MonoBehaviour
 {
-    [SerializeField] GameObject nextLevelScreen = null;
+    [SerializeField] GameObject nextScreen = null;
     public bool nextClicked = false;
     public void LoadLevel1()
     {
@@ -26,17 +26,17 @@ public class OnClick : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadNextLevelScreen(bool click)
+    public void LoadNextScreen(bool click)
     {
         nextClicked = click;
-        nextLevelScreen.SetActive(click);
+        nextScreen.SetActive(click);
     }
 
     void Update()
     {
-        if (nextLevelScreen != null)
+        if (nextScreen != null)
         {
-            nextLevelScreen.SetActive(nextClicked);
+            nextScreen.SetActive(nextClicked);
         }
     }
 }
