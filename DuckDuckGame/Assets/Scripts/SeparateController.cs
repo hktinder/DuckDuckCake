@@ -21,6 +21,7 @@ public class SeparateController : MonoBehaviour
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
                     animator.Play("Collision");
+                    Destroy(this, 2f);
                 }
             }
         }
@@ -28,10 +29,15 @@ public class SeparateController : MonoBehaviour
 
     void Start()
     {
-        //transform.localScale = new Vector3();
+        transform.localScale = new Vector3(6438f, 14108f, 6916f);
     }
 
-    /* void Update()
+    void LateUpdate()
+    {
+        transform.localScale = new Vector3(6438f, 14108f, 6916f);
+    }
+
+    void Update()
      {
          if (animator == null || targetObject == null)
          {
@@ -44,5 +50,5 @@ public class SeparateController : MonoBehaviour
              animator.Play("Missed");
              Destroy(this, 2f);
          }
-     }*/
+    }
 }
