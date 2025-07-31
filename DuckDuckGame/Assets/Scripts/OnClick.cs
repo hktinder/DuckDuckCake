@@ -46,6 +46,7 @@ public class OnClick : MonoBehaviour
         if (GameStateManager.GameToLoad())
         {
             Debug.Log("next screen: " + nextScreen);
+            nextClicked = true;
             nextScreen.SetActive(true);
             Debug.Log("Opened prompt for info");
         }
