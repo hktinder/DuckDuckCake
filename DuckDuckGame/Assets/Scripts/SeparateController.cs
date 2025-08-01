@@ -9,6 +9,7 @@ public class SeparateController : MonoBehaviour
     public string targetFunctionName;
 
     private bool collided = false;
+    private bool shouldUpdate = true;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,11 +19,12 @@ public class SeparateController : MonoBehaviour
             {
                 MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
                 {
+                    shouldUpdate = false;
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
                     animator.applyRootMotion = true;
                     animator.Play("Collision");
-                    Destroy(this, 2f);
+                    Destroy(this, 10f);
                 }
             }
         }
@@ -41,7 +43,7 @@ public class SeparateController : MonoBehaviour
 
     void Update()
      {
-        if (animator == null || targetObject == null)
+        if (animator == null || targetObject == null || !shouldUpdate)
         {
             return;
         }
@@ -51,7 +53,7 @@ public class SeparateController : MonoBehaviour
         {
             animator.applyRootMotion = true;
             animator.Play("Missed");
-            Destroy(this, 2f);
+            Destroy(this, 10f);
         }
     }
 }
