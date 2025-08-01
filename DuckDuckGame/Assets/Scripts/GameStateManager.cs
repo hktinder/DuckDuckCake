@@ -6,7 +6,7 @@ public static class GameStateManager
     public static float timer = 60f;
     public static int playerHealth = 3;
 
-    public static float originalTimer = 90f;
+    public static float originalTimer = 60f;
 
     public static bool GameToLoad()
     {

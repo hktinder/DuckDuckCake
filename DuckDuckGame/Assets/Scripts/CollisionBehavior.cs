@@ -30,9 +30,8 @@ public class CollisionBehavior : MonoBehaviour
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
                     animator.Play("Collision");
-                    //animator.SetBool("collision", true);
                     Destroy(this.gameObject, 2f);
-                    //Debug.Log("Destroy called");
+                    Debug.Log("Destroy called");
                 }
             }
         }
@@ -54,7 +53,6 @@ public class CollisionBehavior : MonoBehaviour
         if (objZ.z < targetZ.z)
         {
             animator.Play("Missed");
-            //animator.SetBool("missed", true);
             Destroy(this.gameObject, 1f);
         }
         else if (!type)

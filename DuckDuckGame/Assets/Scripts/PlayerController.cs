@@ -35,25 +35,21 @@ public class PlayerController : MonoBehaviour
         if (!paused)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * duckSpeed, Space.World);
-            //if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < upBound)
             if (Input.GetKey(KeyCode.UpArrow) && this.gameObject.transform.position.y < -1 * screenBounds.y / 2)
             {
                 animator.Play("Ascend");
                 transform.Translate(Vector3.up * Time.deltaTime * moveSpeed, Space.World);
             }
-            //else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > downBound)
             else if (Input.GetKey(KeyCode.DownArrow) && this.gameObject.transform.position.y > screenBounds.y / 2)
             {
                 animator.Play("Descend");
                 transform.Translate(Vector3.down * Time.deltaTime * moveSpeed, Space.World);
             }
-            //else if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x > leftBound)
             else if (Input.GetKey(KeyCode.LeftArrow) && this.gameObject.transform.position.x > screenBounds.x / 2)
             {
                 animator.Play("FlapWings");
                 transform.Translate(Vector3.left * Time.deltaTime * moveSpeed, Space.World);
             }
-            //else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x < rightBound)
             else if (Input.GetKey(KeyCode.RightArrow) && this.gameObject.transform.position.x < -1 * screenBounds.x / 2)
             {
                 animator.Play("FlapWings");
