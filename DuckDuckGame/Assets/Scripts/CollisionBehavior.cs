@@ -34,8 +34,8 @@ public class CollisionBehavior : MonoBehaviour
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
                     animator.Play("Collision");
-                    Destroy(thisGameObject, 1f);
-                    Debug.Log("Destroy called");
+                    Destroy(thisGameObject, 2f);
+                    //Debug.Log("Destroy called");
                 }
             }
         }
