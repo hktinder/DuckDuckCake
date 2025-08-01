@@ -12,6 +12,9 @@ public class OnClick : MonoBehaviour
     }
     public void LoadHomePage()
     {
+        GameStateManager.cakeCount = 0;
+        GameStateManager.timer = 60f;
+        GameStateManager.playerHealth = 3;
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadWinScreen()

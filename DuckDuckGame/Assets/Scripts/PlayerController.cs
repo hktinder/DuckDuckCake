@@ -95,26 +95,4 @@ public class PlayerController : MonoBehaviour
     {
         return currentCakeSlices;
     }
-    /*
-    void Awake()
-    {
-        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
-    }
-
-    void OnDestroy()
-    {
-        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
-    }
-
-    private void GameManagerOnGameStateChanged(GameState state)
-    {
-        if (state == GameState.Pause)
-        {
-            paused = true;
-        }
-        else
-        {
-            paused = false;
-        }
-    }*/
 }

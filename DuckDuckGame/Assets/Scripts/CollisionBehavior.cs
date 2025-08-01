@@ -8,16 +8,12 @@ public class CollisionBehavior : MonoBehaviour
     public GameObject targetObject;
     public string targetFunctionName;
 
-    public GameObject thisGameObject;
-
     public bool type;
-
     public float xScale;
     public float yScale;
     public float zScale;
-    public float xRotation;
-    public float yRotation;
-    public float zRotation;
+
+    public Vector3 startingPosition;
 
 
     private bool collided = false;
@@ -35,7 +31,7 @@ public class CollisionBehavior : MonoBehaviour
                     targetScript.SendMessage(targetFunctionName, 1);
                     animator.Play("Collision");
                     //animator.SetBool("collision", true);
-                    Destroy(thisGameObject, 2f);
+                    Destroy(this.gameObject, 2f);
                     //Debug.Log("Destroy called");
                 }
             }
@@ -45,12 +41,7 @@ public class CollisionBehavior : MonoBehaviour
     void Start()
     {
         animator.applyRootMotion = false;
-        //animator.SetBool("missed", false);
-        //animator.SetBool("collision", false);
-        /*if (type)
-        {
-            //animator.Play("Idle");
-        }*/
+        transform.position = startingPosition;
     }
     void Update()
     {
@@ -64,7 +55,7 @@ public class CollisionBehavior : MonoBehaviour
         {
             animator.Play("Missed");
             //animator.SetBool("missed", true);
-            Destroy(thisGameObject, 1f);
+            Destroy(this.gameObject, 1f);
         }
         else if (!type)
         {
@@ -74,8 +65,15 @@ public class CollisionBehavior : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!type)
+        {
+            Vector3 pos = transform.position;
+            pos.x = startingPosition.x;
+            pos.z = startingPosition.z;
+            transform.position = pos;
+        }
+
         transform.localScale = new Vector3(xScale, yScale, zScale);
-        //transform.localEulerAngles = new Vector3(xRotation, yRotation, zRotation);
     }
 
 }

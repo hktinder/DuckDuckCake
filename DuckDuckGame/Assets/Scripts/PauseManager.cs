@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
         if (!saveData)
         {
             GameStateManager.cakeCount = 0;
-            GameStateManager.timer = 90f;
+            GameStateManager.timer = 60f;
             GameStateManager.playerHealth = 3;
             Debug.Log("Didn't save data...");
         }
