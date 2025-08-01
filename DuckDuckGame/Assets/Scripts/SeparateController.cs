@@ -20,6 +20,7 @@ public class SeparateController : MonoBehaviour
                 {
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
+                    animator.applyRootMotion = true;
                     animator.Play("Collision");
                     Destroy(this, 2f);
                 }
@@ -30,6 +31,7 @@ public class SeparateController : MonoBehaviour
     void Start()
     {
         transform.localScale = new Vector3(6438f, 14108f, 6916f);
+        //animator.applyRootMotion = true;
     }
 
     void LateUpdate()
@@ -39,16 +41,17 @@ public class SeparateController : MonoBehaviour
 
     void Update()
      {
-         if (animator == null || targetObject == null)
-         {
-             return;
-         }
-         Vector3 objZ = transform.position;
-         Vector3 targetZ = targetObject.transform.position;
-         if (objZ.z < targetZ.z)
-         {
-             animator.Play("Missed");
-             Destroy(this, 2f);
-         }
+        if (animator == null || targetObject == null)
+        {
+            return;
+        }
+        Vector3 objZ = transform.position;
+        Vector3 targetZ = targetObject.transform.position;
+        if (objZ.z < targetZ.z)
+        {
+            animator.applyRootMotion = true;
+            animator.Play("Missed");
+            Destroy(this, 2f);
+        }
     }
 }

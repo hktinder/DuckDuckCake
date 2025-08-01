@@ -10,6 +10,11 @@ public class CollisionBehavior : MonoBehaviour
 
     public bool type;
 
+    public float xScale;
+    public float yScale;
+    public float zScale;
+
+
     private bool collided = false;
 
     void OnTriggerEnter(Collider other)
@@ -57,4 +62,10 @@ public class CollisionBehavior : MonoBehaviour
             animator.Play("Idle");
         }
     }
+
+    void LateUpdate()
+    {
+        transform.localScale = new Vector3(xScale, yScale, zScale);
+    }
+
 }
