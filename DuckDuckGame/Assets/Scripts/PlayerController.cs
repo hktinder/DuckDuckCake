@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Debug.Log("Screenbounds- x: " + screenBounds.x + " y: " + screenBounds.y);
         currentHealth = GameStateManager.playerHealth;
+        Debug.Log("Current Health: " + GameStateManager.playerHealth);
         healthBar.SetMaxHealth(maxHealth);
         currentCakeSlices = GameStateManager.cakeCount;
         cakeCount.UpdateCakeCount(currentCakeSlices);

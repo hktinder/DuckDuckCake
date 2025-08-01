@@ -32,13 +32,15 @@ public class SeparateController : MonoBehaviour
 
     void Start()
     {
-        transform.localScale = new Vector3(6438f, 14108f, 6916f);
+        //transform.localScale = new Vector3(4506.337f, 7429.69f, 4559.187f);
         //animator.applyRootMotion = true;
+        transform.localScale = new Vector3(5000f, 5000f, 5000f);
     }
 
     void LateUpdate()
     {
-        transform.localScale = new Vector3(6438f, 14108f, 6916f);
+        //transform.localScale = new Vector3(4506.337f, 7429.69f, 4559.187f);
+        transform.localScale = new Vector3(5000f, 5000f, 5000f);
     }
 
     void Update()

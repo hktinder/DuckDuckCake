@@ -92,7 +92,7 @@ ModelImporter:
       name: plane_collide
       takeName: Plane|Sphere.001Action.001
       internalID: -4577880654115556416
-      firstFrame: 100
+      firstFrame: 110
       lastFrame: 139
       wrapMode: 0
       orientationOffsetY: 0

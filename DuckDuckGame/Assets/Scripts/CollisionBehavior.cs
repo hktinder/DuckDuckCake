@@ -8,11 +8,16 @@ public class CollisionBehavior : MonoBehaviour
     public GameObject targetObject;
     public string targetFunctionName;
 
+    public GameObject thisGameObject;
+
     public bool type;
 
     public float xScale;
     public float yScale;
     public float zScale;
+    public float xRotation;
+    public float yRotation;
+    public float zRotation;
 
 
     private bool collided = false;
@@ -25,12 +30,12 @@ public class CollisionBehavior : MonoBehaviour
             {
                 MonoBehaviour targetScript = targetObject.GetComponent<MonoBehaviour>();
                 {
+                    collided = true;
                     Debug.Log("Invoking: " + targetFunctionName);
                     targetScript.SendMessage(targetFunctionName, 1);
-                    animator.enabled = false;
-                    animator.enabled = true;
                     animator.Play("Collision");
-                    //Destroy(this, 2f);
+                    Destroy(thisGameObject, 1f);
+                    Debug.Log("Destroy called");
                 }
             }
         }
@@ -45,7 +50,7 @@ public class CollisionBehavior : MonoBehaviour
     }
     void Update()
     {
-        if (animator == null || targetObject == null)
+        if (animator == null || targetObject == null || collided)
         {
             return;
         }
@@ -53,9 +58,8 @@ public class CollisionBehavior : MonoBehaviour
         Vector3 targetZ = targetObject.transform.position;
         if (objZ.z < targetZ.z)
         {
-            animator.enabled = false;
-            animator.enabled = true;
             animator.Play("Missed");
+            Destroy(thisGameObject, 1f);
         }
         else if (!type)
         {
@@ -66,6 +70,7 @@ public class CollisionBehavior : MonoBehaviour
     void LateUpdate()
     {
         transform.localScale = new Vector3(xScale, yScale, zScale);
+        //transform.localEulerAngles = new Vector3(xRotation, yRotation, zRotation);
     }
 
 }
